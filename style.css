@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  user-select: none;
+  background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%); /* Dark gradient background */
+  color: #e0e0e0; /* Softer white for text */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+  height: 100vh;
+  padding: 20px; /* Add some padding around the content */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+h1 {
+  color: #00bcd4; /* Cyan-like color for heading */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle text shadow */
+  margin-bottom: 25px;
+  font-size: 2.5em;
+  letter-spacing: 1.5px;
+}
+
+#videoElement {
+  transform: scaleX(-1); /* mirror video */
+  -webkit-transform: scaleX(-1);
+  width: 640px;
+  height: 480px;
+  border: 4px solid #00bcd4; /* Thicker, colored border */
+  border-radius: 12px; /* More rounded corners */
+  background: #000;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 255, 255, 0.2); /* Deeper shadow with inner glow */
+  object-fit: cover; /* Ensure video fills the space */
+}
+
+#canvasElement {
+  position: absolute;
+  /* Top, left, width, height should match videoElement for overlay */
+  top: 50%; /* Position relative to body, then adjust with transform */
+  left: 50%;
+  transform: translate(-50%, -50%) scaleX(-1); /* Center and mirror */
+  -webkit-transform: translate(-50%, -50%) scaleX(-1);
+  width: 640px;
+  height: 480px;
+  pointer-events: none;
+  border-radius: 12px; /* Match video border-radius */
+}
+
+#status {
+  margin-top: 25px; /* More spacing */
+  font-size: 1.4em; /* Slightly larger font */
+  color: #a0d911; /* Bright green for status */
+  text-align: center;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  min-width: 300px; /* Ensure status message has a decent width */
+}
+
+#customCursor {
+  position: fixed;
+  width: 25px; /* Slightly larger cursor */
+  height: 25px;
+  background-color: rgba(160, 217, 17, 0.8); /* Match status color, slightly more opaque */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  border: 2px solid rgba(255, 255, 255, 0.7); /* White border for better visibility */
+  transition: background-color 0.1s ease-in-out, transform 0.1s ease-in-out; /* Smooth transitions for color and scale */
+  box-shadow: 0 0 15px rgba(160, 217, 17, 0.6); /* Glow effect for cursor */
+}
+
+/* Click feedback for cursor */
+#customCursor.clicked {
+  background-color: rgba(255, 69, 0, 0.9); /* Orange-red for click */
+  transform: scale(1.2); /* Briefly scale up on click */
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.9); /* Stronger glow on click */
+}
