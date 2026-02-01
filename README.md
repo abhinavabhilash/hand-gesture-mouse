@@ -1,2 +1,2 @@
 # hand-gesture-mouse
-This is program utilize the camera to work as a mouse using hand gestures.
+This is program which utilizes the camera to work as a mouse using hand gestures.
